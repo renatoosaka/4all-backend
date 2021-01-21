@@ -8,6 +8,9 @@ import CustomersRepository from '@modules/customers/infra/typeorm/repositories/C
 import IMoviesRepository from '@modules/movies/repositories/IMoviesRepository';
 import MoviesRepository from '@modules/movies/infra/typeorm/repositories/MoviesRepository';
 
+import ILendingsRepository from '@modules/movies/repositories/ILendingsRepository';
+import LendingsRepository from '@modules/movies/infra/typeorm/repositories/LendingsRepository';
+
 container.registerSingleton<ICustomersRepository>(
   'CustomersRepository',
   CustomersRepository,
@@ -16,4 +19,9 @@ container.registerSingleton<ICustomersRepository>(
 container.registerSingleton<IMoviesRepository>(
   'MoviesRepository',
   MoviesRepository,
+);
+
+container.registerSingleton<ILendingsRepository>(
+  'LendingsRepository',
+  LendingsRepository,
 );
