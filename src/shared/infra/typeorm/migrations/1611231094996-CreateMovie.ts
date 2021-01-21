@@ -25,6 +25,7 @@ export default class CreateMovie1611231094996 implements MigrationInterface {
           {
             name: 'description',
             type: 'text',
+            isNullable: true,
           },
           {
             name: 'active',
