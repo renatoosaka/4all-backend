@@ -25,6 +25,10 @@ class CustomersRepository implements ICustomersRepository {
       },
     });
   }
+
+  public async findById(id: string): Promise<Customer | undefined> {
+    return this.db.findOne(id);
+  }
 }
 
 export default CustomersRepository;
