@@ -24,6 +24,14 @@ class LendingsRepository implements ILendingsRepository {
 
     return this.db.save(lending);
   }
+
+  public async save(lending: Lending): Promise<Lending> {
+    return this.db.save(lending);
+  }
+
+  public async findById(id: string): Promise<Lending | undefined> {
+    return this.db.findOne(id);
+  }
 }
 
 export default LendingsRepository;

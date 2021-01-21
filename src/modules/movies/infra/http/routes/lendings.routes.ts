@@ -7,5 +7,6 @@ const routes = Router();
 const lendingsController = new LendingsController();
 
 routes.post('/', ensureAuthenticated, lendingsController.create);
+routes.put('/:id', ensureAuthenticated, lendingsController.update);
 
 export default routes;
