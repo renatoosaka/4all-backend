@@ -13,7 +13,7 @@ export default class CreateMovie1611231094996 implements MigrationInterface {
             generationStrategy: 'uuid',
           },
           {
-            name: 'tile',
+            name: 'title',
             type: 'varchar',
             isNullable: false,
           },
