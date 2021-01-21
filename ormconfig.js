@@ -15,6 +15,7 @@ module.exports = {
   "username": process.env.DB_USER || "root",
   "password": process.env.DB_PASS || "123456",
   "database": process.env.DB_NAME || "4all",
+  "logging": process.env.DB_LOGGING === 'true',
   "entities": [
     process.env.DB_ENTITIES || "./src/modules/**/infra/typeorm/entities/*.ts"
   ],
