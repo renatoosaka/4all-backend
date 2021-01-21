@@ -5,9 +5,12 @@ import express, { Request, Response, NextFunction } from 'express';
 import 'express-async-errors';
 
 import cors from 'cors';
+import swaggerUi from 'swagger-ui-express';
 
 import AppError from '@shared/errors/AppError';
 import routes from '@shared/infra/http/routes';
+
+import specs from '@shared/infra/docs/specs.json';
 
 import '@shared/container';
 import '@shared/infra/typeorm';
@@ -18,6 +21,15 @@ app.disable('x-powered-by');
 app.use(cors());
 app.use(express.json());
 app.use(routes);
+
+app.use(
+  '/docs',
+  swaggerUi.serve,
+  swaggerUi.setup(specs, {
+    explorer: true,
+    customSiteTitle: '4all - API documentation',
+  }),
+);
 
 app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
   if (err instanceof AppError) {
