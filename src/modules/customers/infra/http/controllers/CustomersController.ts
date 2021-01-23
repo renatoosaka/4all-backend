@@ -13,7 +13,7 @@ class CustomersController {
 
     const customer = await createCustomer.execute({ name, email, password });
 
-    return response.status(201).json(customer);
+    return response.status(201).json(classToClass(customer));
   }
 
   public async show(request: Request, response: Response): Promise<Response> {
