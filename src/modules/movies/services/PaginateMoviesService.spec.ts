@@ -1,6 +1,5 @@
 import PaginateMoviesService from '@modules/movies/services/PaginateMoviesService';
 import FakeMoviesRepository from '@modules/movies/repositories/fakes/FakeMoviesRepository';
-import AppError from '@shared/errors/AppError';
 
 let fakeMoviesRepository: FakeMoviesRepository;
 let paginateMovie: PaginateMoviesService;
