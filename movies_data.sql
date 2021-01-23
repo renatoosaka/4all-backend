@@ -1,3 +1,5 @@
+CREATE DATABASE 4alldev CHARACTER SET utf8 COLLATE utf8_general_ci;
+
 insert into movies (id, title, director)
 values
   ('a2d3425a-5bec-11eb-99ab-0242ac110002', '12 Angry Men', 'Sidney Lumet'),

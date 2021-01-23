@@ -178,6 +178,15 @@
         "summary": "Retorna a lista de filmes",
         "parameters": [
           {
+            "name": "authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "page",
             "in": "query",
             "description": "Número dá pagina, valor padrão é 1",
@@ -220,6 +229,122 @@
                       }
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lendings": {
+      "post": {
+        "tags": [
+          "lendings"
+        ],
+        "summary": "Realiza o empréstimo de filmes",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Dados para empréstimo de filmes",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "return_date": {
+                    "type": "string"
+                  },
+                  "copies": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Retorna com sucesso os dados do empréstimo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lending"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Retorna mensagem de erro",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Retorna mensagem de erro",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lendings/{id}": {
+      "put": {
+        "tags": [
+          "lendings"
+        ],
+        "summary": "Realiza a devolução do empréstimo",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID do empréstimo",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Retorna sucesso a devolução do empréstimo"
+          },
+          "404": {
+            "description": "Retorna mensagem de erro",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -299,6 +424,36 @@
           },
           "active": {
             "type": "boolean"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        }
+      },
+      "Lending": {
+        "type": "object",
+        "properties": {
+          "customer_id": {
+            "type": "string"
+          },
+          "return_date": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "properties": {
+                "copy_id": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "id": {
+            "type": "string"
           },
           "created_at": {
             "type": "string"
