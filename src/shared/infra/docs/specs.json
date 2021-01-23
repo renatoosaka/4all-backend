@@ -34,13 +34,16 @@
                 "type": "object",
                 "properties": {
                   "name": {
-                    "type": "string"
+                    "type": "string",
+                    "example":"Jhon Doe"
                   },
                   "email": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "email"
                   },
                   "password": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "password"
                   }
                 }
               }
@@ -85,7 +88,8 @@
             "description": "Bearer token",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
             }
           }
         ],
@@ -127,10 +131,12 @@
                 "type": "object",
                 "properties": {
                   "email": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "email"
                   },
                   "password": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "password"
                   }
                 }
               }
@@ -150,7 +156,8 @@
                       "$ref": "#/components/schemas/Customer"
                     },
                     "token": {
-                      "type": "string"
+                      "type": "string",
+                      "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
                     }
                   }
                 }
@@ -183,7 +190,8 @@
             "description": "Bearer token",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
             }
           },
           {
@@ -192,7 +200,8 @@
             "description": "Número dá pagina, valor padrão é 1",
             "required": false,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "example": "1"
             }
           },
           {
@@ -214,13 +223,16 @@
                   "type": "object",
                   "properties": {
                     "currentPage": {
-                      "type": "integer"
+                      "type": "integer",
+                      "exaple": "1"
                     },
                     "totalPage": {
-                      "type": "integer"
+                      "type": "integer",
+                      "example": "1"
                     },
                     "rowsCount": {
-                      "type": "integer"
+                      "type": "integer",
+                      "example": "10"
                     },
                     "data": {
                       "type": "array",
@@ -249,7 +261,8 @@
             "description": "Bearer token",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
             }
           }
         ],
@@ -261,12 +274,14 @@
                 "type": "object",
                 "properties": {
                   "return_date": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "date"
                   },
                   "copies": {
                     "type": "array",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "format": "uuid"
                     }
                   }
                 }
@@ -322,7 +337,8 @@
             "description": "Bearer token",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
             }
           },
           {
@@ -331,7 +347,8 @@
             "description": "ID do empréstimo",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -359,22 +376,27 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "format": "uuid"
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "example": "Jhon Doe"
           },
           "email": {
-            "type": "string"
+            "type": "string",
+            "format": "email"
           },
           "active": {
             "type": "boolean"
           },
           "created_at": {
-            "type": "string"
+            "type": "string",
+            "format": "date-time"
           },
           "updated_at": {
-            "type": "string"
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
@@ -382,25 +404,31 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "format": "uuid"
           },
           "title": {
-            "type": "string"
+            "type": "string",
+            "example": "Jurassic Park"
           },
           "director": {
-            "type": "string"
+            "type": "string",
+            "example": "Steven Spielberg"
           },
           "description": {
-            "type": "string"
+            "type": "string",
+            "example": "Lorem ipsum dolor sit amet."
           },
           "active": {
             "type": "boolean"
           },
           "created_at": {
-            "type": "string"
+            "type": "string",
+            "format": "date-time"
           },
           "updated_at": {
-            "type": "string"
+            "type": "string",
+            "format": "date-time"
           },
           "copies": {
             "type": "array",
@@ -414,22 +442,27 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "format": "uuid"
           },
           "movie_id": {
-            "type": "string"
+            "type": "string",
+            "format": "uuid"
           },
           "type": {
-            "type": "string"
+            "type": "string",
+            "example": "VHS"
           },
           "active": {
             "type": "boolean"
           },
           "created_at": {
-            "type": "string"
+            "type": "string",
+            "format": "date-time"
           },
           "updated_at": {
-            "type": "string"
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
@@ -437,29 +470,35 @@
         "type": "object",
         "properties": {
           "customer_id": {
-            "type": "string"
+            "type": "string",
+            "format": "uuid"
           },
           "return_date": {
-            "type": "string"
+            "type": "string",
+            "format": "date"
           },
           "items": {
             "type": "array",
             "items": {
               "properties": {
                 "copy_id": {
-                  "type": "string"
+                  "type": "string",
+                  "format": "uuid"
                 }
               }
             }
           },
           "id": {
-            "type": "string"
+            "type": "string",
+            "format": "uuid"
           },
           "created_at": {
-            "type": "string"
+            "type": "string",
+            "format": "date-time"
           },
           "updated_at": {
-            "type": "string"
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
@@ -467,10 +506,12 @@
         "type": "object",
         "properties": {
           "status": {
-            "type": "string"
+            "type": "string",
+            "example": "error"
           },
           "message": {
-            "type": "string"
+            "type": "string",
+            "example": "An error occurred"
           }
         }
       }
