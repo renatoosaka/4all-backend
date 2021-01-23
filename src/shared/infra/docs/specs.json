@@ -224,7 +224,7 @@
                   "properties": {
                     "currentPage": {
                       "type": "integer",
-                      "exaple": "1"
+                      "example": "1"
                     },
                     "totalPage": {
                       "type": "integer",
