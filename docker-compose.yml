@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  4all-backend:
+    build:
+      context: .
+      dockerfile: dockerfile-backend
+    container_name: 4all-backend
+    ports:
+      - '5000:5000'
+    depends_on:
+      - 4all-database
+    networks:
+      - 4all-network
+    environment:
+      WAIT_HOSTS: 4all-database:3306
+      DB_HOST: 4all-database
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASS: 123456
+      DB_NAME: 4all
+      DB_MIGRATIONS: ./dist/shared/infra/typeorm/migrations/*.js
+      DB_MIGRATIONS_DIR: ./dist/shared/infra/typeorm/migrations
+      DB_ENTITIES: ./dist/modules/**/infra/typeorm/entities/*.js
+
+  4all-database:
+    image: mariadb
+    container_name: 4all-database
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: 4all
+    volumes:
+      - 4all-database-data:/var/lib/mysql
+    networks:
+      - 4all-network
+
+volumes:
+  4all-database-data:
+
+networks:
+  4all-network:
+    driver: bridge
