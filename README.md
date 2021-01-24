@@ -1,6 +1,6 @@
 # 4all-backend
 
-Como executar em modo de desenvolvimento
+## Como executar em modo de desenvolvimento
 
 - Clone o repositório
 - Instale as dependências
@@ -12,7 +12,8 @@ Como executar em modo de desenvolvimento
 - Para visualizar a documentação acesse `http://localhost:5000/docs`
 - Para realizar os testes `yarn test`
 
-Como executar em modo de produção
+---
+## Como executar em modo de produção
 
 - Clone o repositório
 - Instale as dependências
@@ -25,7 +26,8 @@ Como executar em modo de produção
 - Para iniciar a aplicação execute `yarn start`
 - Para visualizar a documentação acesse `http://localhost:5000/docs`
 
-Como executar em modo de produção utilizando o docker
+---
+## Como executar em modo de produção utilizando o docker
 
 - Clone o repositório
 - Execute docker-compose up
