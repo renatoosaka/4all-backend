@@ -38,6 +38,20 @@ class FakeMoviesRepository implements IMoviesRepository {
 
     return [movies, this.movies.length];
   }
+
+  public async findByCopyId(copy_id: string): Promise<Movie | undefined> {
+    let foundMovie;
+
+    this.movies.forEach(movie => {
+      const index = movie.copies.findIndex(copy => copy.id === copy_id);
+
+      if (index > -1) {
+        foundMovie = movie;
+      }
+    });
+
+    return foundMovie;
+  }
 }
 
 export default FakeMoviesRepository;

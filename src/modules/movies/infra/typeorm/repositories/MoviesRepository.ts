@@ -39,6 +39,14 @@ class MoviesRepository implements IMoviesRepository {
       order: { title: 'ASC' },
     });
   }
+
+  public async findByCopyId(copy_id: string): Promise<Movie | undefined> {
+    return this.db
+      .createQueryBuilder('movies')
+      .innerJoin('movies.copies', 'copy')
+      .where('copy.id = :copy_id', { copy_id })
+      .getOne();
+  }
 }
 
 export default MoviesRepository;

@@ -18,7 +18,7 @@ class Lending {
   customer_id: string;
 
   @Column()
-  return_date: string;
+  return_date: Date;
 
   @Column()
   is_back: boolean;

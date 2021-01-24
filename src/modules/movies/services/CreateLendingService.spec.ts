@@ -16,6 +16,7 @@ describe('Create Lending', () => {
     fakeCustomersRepository = new FakeCustomersRepository();
     createLending = new CreateLendingService(
       fakeCustomersRepository,
+      fakeMoviesRepository,
       fakeLendingsRepository,
     );
   });

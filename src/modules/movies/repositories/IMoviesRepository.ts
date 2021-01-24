@@ -3,4 +3,5 @@ import IPaginateMovieDTO from '@modules/movies/dtos/IPaginateMovieDTO';
 
 export default interface IMoviesRepository {
   paginate(data: IPaginateMovieDTO): Promise<[Movie[], number]>;
+  findByCopyId(copy_id: string): Promise<Movie | undefined>;
 }
